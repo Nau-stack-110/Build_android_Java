@@ -1,0 +1,75 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "android: build debug",
+            "type": "shell",
+            "command": "__GRADLE_BIN__",
+            "args": [
+                ":app:assembleDebug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "android: install debug",
+            "type": "shell",
+            "command": "__ADB_BIN__",
+            "args": [
+                "install",
+                "-r",
+                "${workspaceFolder}/app/build/outputs/apk/debug/app-debug.apk"
+            ],
+            "dependsOn": "android: build debug",
+            "problemMatcher": []
+        },
+        {
+            "label": "android: run",
+            "type": "shell",
+            "command": "__ADB_BIN__",
+            "args": [
+                "shell",
+                "am",
+                "start",
+                "-n",
+                "__PACKAGE__/.MainActivity"
+            ],
+            "dependsOn": "android: install debug",
+            "problemMatcher": []
+        },
+        {
+            "label": "android: logcat",
+            "type": "shell",
+            "command": "__ADB_BIN__",
+            "args": [
+                "logcat"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "android: lint",
+            "type": "shell",
+            "command": "__GRADLE_BIN__",
+            "args": [
+                ":app:lintDebug"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "android: clean",
+            "type": "shell",
+            "command": "__GRADLE_BIN__",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

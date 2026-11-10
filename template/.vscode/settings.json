@@ -1,0 +1,17 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": false,
+    "java.import.gradle.home": "__GRADLE_HOME__",
+    "java.jdt.ls.java.home": "__JAVA_HOME__",
+    "gradle.nestedProjects": true,
+    "files.associations": {
+        "*.gradle": "groovy"
+    },
+    "xml.validation.enabled": false,
+    "terminal.integrated.env.linux": {
+        "ANDROID_HOME": "__SDK_DIR__",
+        "ANDROID_SDK_ROOT": "__SDK_DIR__",
+        "PATH": "__SDK_DIR__/platform-tools:__SDK_DIR__/cmdline-tools/latest/bin:${env:PATH}"
+    }
+}

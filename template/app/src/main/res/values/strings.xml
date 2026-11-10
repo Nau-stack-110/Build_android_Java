@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">__APP_LABEL_XML__</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="logo_description">__APP_LABEL_XML__</string>
+</resources>

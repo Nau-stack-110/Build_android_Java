@@ -1,0 +1,5 @@
+<resources>
+    <style name="__BASE_THEME_NAME__" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+    </style>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <style name="__BASE_THEME_NAME__" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+    </style>
+
+    <style name="__THEME_NAME__" parent="__BASE_THEME_NAME__" />
+</resources>
