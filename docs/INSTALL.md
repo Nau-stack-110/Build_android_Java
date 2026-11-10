@@ -8,7 +8,7 @@ Debian / Ubuntu / Parrot :
 
 ```bash
 sudo apt update
-sudo apt install -y openjdk-17-jdk python3 curl unzip tar
+sudo apt install -y openjdk-17-jdk python3 git curl unzip tar
 ```
 
 Autres distributions : adapter les noms de paquets.
@@ -121,20 +121,20 @@ Utiliser le vrai dossier Gradle, pas un symlink.
 
 ## 5. Générateur
 
-Copier tout le dossier :
+Cloner tout le dépôt :
 
 ```bash
-mkdir -p "$HOME/devko/tools/android-scaffold"
-cp -a /chemin/vers/android-scaffold/. "$HOME/devko/tools/android-scaffold/"
-chmod +x "$HOME/devko/tools/android-scaffold/new-project.sh"
-chmod +x "$HOME/devko/tools/android-scaffold/template/gradlew"
+git clone https://github.com/Nau-stack-110/Build_android_Java.git \
+  "$HOME/build_android_java"
+chmod +x "$HOME/build_android_java/new-project.sh"
+chmod +x "$HOME/build_android_java/template/gradlew"
 ```
 
 Créer la commande :
 
 ```bash
 mkdir -p "$HOME/.local/bin"
-ln -sfn "$HOME/devko/tools/android-scaffold/new-project.sh" \
+ln -sfn "$HOME/build_android_java/new-project.sh" \
         "$HOME/.local/bin/android-new"
 export PATH="$HOME/.local/bin:$PATH"
 ```
@@ -183,8 +183,8 @@ android-new --help
 ## 8. Premier projet
 
 ```bash
-android-new TestApp com.example.testapp --output /tmp/testapp
-cd /tmp/testapp/TestApp
+android-new TestApp com.example.testapp --output "$HOME/AndroidProjects"
+cd "$HOME/AndroidProjects/TestApp"
 gradle :app:assembleDebug
 ```
 

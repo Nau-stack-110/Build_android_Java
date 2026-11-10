@@ -3,7 +3,7 @@
 ## Structure
 
 ```text
-android-scaffold/
+build_android_java/
 ├── new-project.sh
 ├── template/
 │   ├── app/

@@ -80,6 +80,8 @@ Tester après chaque changement.
 ## Vérifications
 
 ```bash
+cd "$HOME/build_android_java"
+
 bash -n new-project.sh
 ./new-project.sh --help
 

@@ -43,7 +43,7 @@ Utiliser un JDK complet, pas un JRE.
 
 ### `template introuvable`
 
-Copier tout le dossier `android-scaffold`.
+Copier tout le dossier `build_android_java`.
 Le script seul ne suffit pas.
 
 ### `le dossier existe déjà`

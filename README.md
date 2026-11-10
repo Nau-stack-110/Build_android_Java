@@ -1,4 +1,4 @@
-# android-scaffold
+# build_android_java
 
 Générateur de projets Android Java pour Linux.
 Fonctionne sans Android Studio.
@@ -9,8 +9,8 @@ Fonctionne sans Android Studio.
 
 ```bash
 source ~/.zshrc
-android-new MonApp com.naunau.monapp
-cd ~/devko/mobile/android/MonApp
+android-new MonApp com.naunau.monapp --output "$HOME/AndroidProjects"
+cd "$HOME/AndroidProjects/MonApp"
 gradle :app:assembleDebug
 ```
 
@@ -39,6 +39,7 @@ adb shell am start -n com.naunau.monapp/.MainActivity
 | Android SDK | API 35 |
 | Build Tools | 35.0.0 |
 | Python | 3 |
+| Git | récent |
 | Bash | 3.2+ |
 
 Android Studio n'est pas nécessaire.
@@ -49,15 +50,15 @@ Installation complète : [docs/INSTALL.md](docs/INSTALL.md).
 
 ## Installation
 
-Copier tout le dossier `android-scaffold`.
+Cloner tout le dépôt `build_android_java`.
 Le script seul ne suffit pas.
 
 ```bash
-mkdir -p "$HOME/devko/tools/android-scaffold"
-cp -a /chemin/vers/android-scaffold/. "$HOME/devko/tools/android-scaffold/"
+git clone https://github.com/Nau-stack-110/Build_android_Java.git \
+  "$HOME/build_android_java"
 
 mkdir -p "$HOME/.local/bin"
-ln -sfn "$HOME/devko/tools/android-scaffold/new-project.sh" \
+ln -sfn "$HOME/build_android_java/new-project.sh" \
         "$HOME/.local/bin/android-new"
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -84,24 +85,24 @@ android-new <projet> <package> [options]
 Exemple :
 
 ```bash
-android-new MonApp com.naunau.monapp
+android-new MonApp com.naunau.monapp --output "$HOME/AndroidProjects"
 ```
 
-Création par défaut :
+Création :
 
 ```text
-~/devko/mobile/android/MonApp
+~/AndroidProjects/MonApp
 ```
 
 ### Options
 
-| Option | Défaut | Rôle |
+| Option | Valeur | Rôle |
 |---|---|---|
 | `--min-sdk N` | `24` | SDK minimum |
 | `--target-sdk N` | `35` | SDK cible |
 | `--compile-sdk N` | `35` | SDK de compilation |
 | `--build-tools V` | `35.0.0` | Build Tools |
-| `--output DIR` | `~/devko/mobile/android` | Dossier parent |
+| `--output DIR` | `~/AndroidProjects` | Dossier parent |
 | `--app-label TEXTE` | nom du projet | Nom affiché |
 | `--with-tests` | non | Ajoute deux tests |
 | `--help` | — | Affiche l'aide |
@@ -117,7 +118,7 @@ Création par défaut :
 ## Commandes utiles
 
 ```bash
-cd ~/devko/mobile/android/MonApp
+cd ~/AndroidProjects/MonApp
 
 gradle :app:assembleDebug   # compiler
 gradle :app:lintDebug       # vérifier

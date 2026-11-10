@@ -8,61 +8,62 @@ Prérequis : [INSTALL.md](INSTALL.md).
 
 ## 1. Créer l'archive
 
+Le dépôt est dans `~/build_android_java`.
+
 ```bash
-cd "$HOME/devko/tools"
+cd "$HOME"
 
 VERSION=1.0.0
-STAGE="/tmp/android-scaffold-$VERSION"
+STAGE="/tmp/build_android_java-$VERSION"
 
 rm -rf "$STAGE"
-cp -a android-scaffold "$STAGE"
+cp -a build_android_java "$STAGE"
 rm -rf "$STAGE/.git" "$STAGE/.gradle" "$STAGE/build"
 
 chmod +x "$STAGE/new-project.sh"
 chmod +x "$STAGE/template/gradlew"
 
 mkdir -p releases
-tar -czf "releases/android-scaffold-$VERSION.tar.gz" \
-  -C /tmp "android-scaffold-$VERSION"
+tar -czf "releases/build_android_java-$VERSION.tar.gz" \
+  -C /tmp "build_android_java-$VERSION"
 ```
 
 ## 2. Checksum
 
 ```bash
-cd "$HOME/devko/tools/releases"
+cd "$HOME/releases"
 
-sha256sum "android-scaffold-$VERSION.tar.gz" \
-  > "android-scaffold-$VERSION.tar.gz.sha256"
+sha256sum "build_android_java-$VERSION.tar.gz" \
+  > "build_android_java-$VERSION.tar.gz.sha256"
 
-sha256sum -c "android-scaffold-$VERSION.tar.gz.sha256"
+sha256sum -c "build_android_java-$VERSION.tar.gz.sha256"
 ```
 
 ## 3. Vérifier
 
 ```bash
-cd "$HOME/devko/tools/releases"
+cd "$HOME/releases"
 
-tar -tzf "android-scaffold-$VERSION.tar.gz" | head
+tar -tzf "build_android_java-$VERSION.tar.gz" | head
 
-rm -rf "/tmp/android-scaffold-$VERSION"
-tar -xzf "android-scaffold-$VERSION.tar.gz" -C /tmp
+rm -rf "/tmp/build_android_java-$VERSION"
+tar -xzf "build_android_java-$VERSION.tar.gz" -C /tmp
 
-"/tmp/android-scaffold-$VERSION/new-project.sh" --help
+"/tmp/build_android_java-$VERSION/new-project.sh" --help
 ```
 
 ## 4. Installer
 
 ```bash
-cd "$HOME/devko/tools/releases"
+cd "$HOME/releases"
 
 # Vérifier le fichier téléchargé
-sha256sum -c android-scaffold-1.0.0.tar.gz.sha256
+sha256sum -c build_android_java-1.0.0.tar.gz.sha256
 
-mkdir -p "$HOME/devko/tools"
-tar -xzf android-scaffold-1.0.0.tar.gz -C "$HOME/devko/tools"
+tar -xzf build_android_java-1.0.0.tar.gz -C "$HOME"
 
 mkdir -p "$HOME/.local/bin"
-ln -sfn "$HOME/devko/tools/android-scaffold-1.0.0/new-project.sh" \
+ln -sfn "$HOME/build_android_java-1.0.0/new-project.sh" \
         "$HOME/.local/bin/android-new"
 ```
 
@@ -78,14 +79,14 @@ Installer la nouvelle version dans un nouveau dossier.
 Changer le symlink :
 
 ```bash
-ln -sfn "$HOME/devko/tools/android-scaffold-1.1.0/new-project.sh" \
+ln -sfn "$HOME/build_android_java-1.1.0/new-project.sh" \
         "$HOME/.local/bin/android-new"
 ```
 
 ## 6. Revenir en arrière
 
 ```bash
-ln -sfn "$HOME/devko/tools/android-scaffold-1.0.0/new-project.sh" \
+ln -sfn "$HOME/build_android_java-1.0.0/new-project.sh" \
         "$HOME/.local/bin/android-new"
 ```
 

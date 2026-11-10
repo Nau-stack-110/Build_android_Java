@@ -21,17 +21,20 @@ Android Studio n'est pas requis.
 | Android SDK | API 35 |
 | Build Tools | 35.0.0 |
 | Python | 3 |
+| Git | récent |
 | Bash | 3.2+ |
 
 ## À copier
 
-Copier tout le dossier :
+Copier ou cloner tout le dépôt :
 
 ```text
-android-scaffold/
+build_android_java/
+├── README.md
 ├── new-project.sh
 ├── template/
-└── optional-tests/
+├── optional-tests/
+└── docs/
 ```
 
 Ne pas copier :
@@ -106,6 +109,6 @@ systemProp.https.proxyPort=8080
 - [ ] JDK 17
 - [ ] Gradle 8.7
 - [ ] SDK API 35 + Build Tools 35.0.0
-- [ ] dossier complet copié
+- [ ] dépôt complet copié
 - [ ] `android-new --help`
 - [ ] premier build réussi
